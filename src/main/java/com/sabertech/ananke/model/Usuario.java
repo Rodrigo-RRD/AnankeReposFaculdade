@@ -1,7 +1,6 @@
 package com.sabertech.ananke.model;
 
-import java.util.Date;
-
+import com.sabertech.ananke.model.util.Perfil;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,23 +9,15 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Documentos {
-
+public class Usuario {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private byte dados;
+    private Perfil perfil;
 
-    private Date data;
+    private String matricula;
 
-    private Boolean isVersaoAluno;
-
-    private String titulo;
-
-    private String resumo;
-    
-    private Double avaliacao;
-
-
+    private String tokenAcesso;
 }

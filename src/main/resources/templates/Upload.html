@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http//thymeleaf.org" xmlns:layout="http//www.ultra.net.nz/thymeleaf/layout">
+
+<head>
+  <title>Arquivo</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <br>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main class="container">
+
+  <h1>Adicionar Arquivo</h1>
+
+  <form class="container" method="post" action="/arquivo/salvar" th:object="${arquivo}">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" value="" name="titulo" placeholder="NomeArquivo">
+      </div>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="dados">
+    </div>
+    <button type="submit" class="text-center">Salvar</button>
+  </form>
+  
+<br><br><br>
+
+<!-- Lista -->
+<table class="table table-responsive table-dark container">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Data do Envio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="arquivo : ${arquivos}" class="textEditarDelete">
+      <td><span th:text="${arquivo.id}"></span></td>
+      <td><span th:text="${arquivo.titulo}"></span></td>
+      <td><span th:text="${#dates.format(arquivo.data, 'dd/MM/yyyy HH:mm')}"></span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
